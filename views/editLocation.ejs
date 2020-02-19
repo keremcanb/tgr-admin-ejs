@@ -1,0 +1,35 @@
+<%- include("partials/_header") -%>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <form action="/admin/edit-location/<%= location._id %>" method="post">
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="text"
+            name="title"
+            placeholder="Title"
+            value="<%= location.title %>"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="text"
+            name="image"
+            placeholder="Image"
+            value="<%= location.image %>"
+          />
+        </div>
+        <div class="text-center">
+          <button class="btn btn-primary" type="submit">
+            Update
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/_footer") -%>

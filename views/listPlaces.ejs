@@ -1,0 +1,166 @@
+<%- include("partials/_header") -%>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-7">
+      <!-- FILTER -->
+      <div class="mb-2">
+        <form action="/admin/filter" method="get">
+          <div class="form-row align-items-center">
+            <div class="col-auto my-1">
+              <select name="location" class="form-control">
+                <% locations.forEach((item) => { %>
+                <option><%= item.title %></option>
+                <% }) %>
+              </select>
+            </div>
+            <div class="col-auto my-1">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- LIST -->
+      <table class="table table-borderless table-hover table-striped">
+        <tbody>
+          <% places.forEach((item, index) => { %>
+          <tr>
+            <td><%= index +1 %></td>
+            <td><strong><%= item.title %></strong></td>
+            <td>
+              <a href="<%= item.image %>" data-toggle="lightbox">
+                <img
+                  src="<%= item.thumbnail %>"
+                  width="150"
+                  height="100"
+                  class="img-thumbnail"
+                />
+              </a>
+            </td>
+            <td>
+              <div class="d-flex flex-column align-items-center">
+                <div class="p-2">
+                  <a
+                    href="/admin/edit-place/<%= item._id %>"
+                    class="btn btn-primary btn-sm"
+                  >
+                    Edit
+                  </a>
+                </div>
+                <div class="p-2">
+                  <a
+                    href="/admin/delete/<%= item._id %>"
+                    class="btn btn-danger btn-sm"
+                  >
+                    Delete
+                  </a>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+
+    <!--FORM-->
+    <div class="col-md-5">
+      <form action="/admin/add-place" method="post">
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="text"
+            name="title"
+            placeholder="Title"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="text"
+            name="image"
+            placeholder="Image"
+            value="http://www.taylandgezi.com/wp-content/uploads/app/"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="text"
+            name="thumbnail"
+            placeholder="Thumbnail"
+            value="http://www.taylandgezi.com/wp-content/uploads/app/tn/"
+          />
+        </div>
+        <div class="form-group">
+          <textarea
+            class="form-control"
+            name="content"
+            rows="5"
+            placeholder="Content"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <textarea
+            class="form-control"
+            name="info"
+            rows="2"
+            placeholder="Info"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <textarea
+            class="form-control"
+            name="link"
+            rows="2"
+            placeholder="Link"
+          >
+343476</textarea
+          >
+        </div>
+        <div class="form-group row">
+          <div class="col">
+            <input
+              class="form-control"
+              type="text"
+              name="lat"
+              placeholder="Lat"
+            />
+          </div>
+          <div class="col">
+            <input
+              class="form-control"
+              type="text"
+              name="lng"
+              placeholder="Lng"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col">
+            <select name="location" class="form-control">
+              <% locations.forEach((item) => { %>
+              <option><%= item.title %></option>
+              <% }) %>
+            </select>
+          </div>
+          <div class="col">
+            <select name="category" class="form-control">
+              <% categories.forEach((item) => { %>
+              <option><%= item.title %></option>
+              <% }) %>
+            </select>
+          </div>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-primary" type="submit">
+            Add
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/_footer") -%>

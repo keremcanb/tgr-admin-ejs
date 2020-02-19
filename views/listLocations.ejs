@@ -1,0 +1,79 @@
+<%- include("partials/_header") -%>
+
+<div class="container">
+  <div class="row">
+    <!-- LIST -->
+    <div class="col-md-7">
+      <table class="table table-borderless table-hover table-striped">
+        <tbody>
+          <% locations.forEach((item, index) => { %>
+          <tr>
+            <td><%= index +1 %></td>
+            <td><strong><%= item.title %></strong></td>
+            <td>
+              <a href="<%= item.image %>" data-toggle="lightbox">
+                <img
+                  src="<%= item.image %>"
+                  width="150"
+                  height="100"
+                  class="img-thumbnail"
+                />
+              </a>
+            </td>
+            <td>
+              <div class="d-flex flex-column align-items-center">
+                <div class="p-2">
+                  <a
+                    href="/admin/edit-location/<%= item._id %>"
+                    class="btn btn-primary btn-sm"
+                  >
+                    Edit
+                  </a>
+                </div>
+                <div class="p-2">
+                  <a
+                    href="/admin/delete/<%= item._id %>"
+                    class="btn btn-danger btn-sm"
+                  >
+                    Delete
+                  </a>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+
+    <!--FORM-->
+    <div class="col-md-5">
+      <form action="/admin/add-location" method="post">
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="text"
+            name="title"
+            placeholder="Title"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="text"
+            name="image"
+            placeholder="Image"
+            value="http://www.taylandgezi.com/wp-content/uploads/app/tn/"
+          />
+        </div>
+        <div class="text-center">
+          <button class="btn btn-primary" type="submit">
+            Add
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/_footer") -%>
