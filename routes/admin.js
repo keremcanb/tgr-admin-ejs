@@ -46,7 +46,7 @@ router.get('/filter', async (req, res) => {
   const places = await Place.find()
   const locations = await Location.find()
   const categories = await Category.find()
-  const filter = locations.filter(arr => arr.title === places.location)
+  const filter = locations.find(arr => arr.title === places.location)
 
   res.render('listPlaces', {
     places,
