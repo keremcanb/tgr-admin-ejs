@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const CategorySchema = new mongoose.Schema({
   title: String,
-  image: String,
+  thumbnail: String,
   location: Array,
   status: {
     type: Boolean,

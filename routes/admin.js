@@ -41,21 +41,6 @@ router.get('/categories', async (req, res) => {
   })
 })
 
-// FILTER
-router.get('/filter', async (req, res) => {
-  const places = await Place.find()
-  const locations = await Location.find()
-  const categories = await Category.find()
-  const filter = locations.find(arr => arr.title === places.location)
-
-  res.render('listPlaces', {
-    places,
-    locations,
-    categories,
-    filter
-  })
-})
-
 // ADD
 router.post('/add-place', async (req, res) => {
   const place = new Place(req.body)

@@ -11,9 +11,9 @@
             <td><%= index +1 %></td>
             <td><strong><%= item.title %></strong></td>
             <td>
-              <a href="<%= item.image %>" data-toggle="lightbox">
+              <a href="<%= item.thumbnail %>" data-toggle="lightbox">
                 <img
-                  src="<%= item.image %>"
+                  src="<%= item.thumbnail %>"
                   width="150"
                   height="100"
                   class="img-thumbnail"
@@ -61,7 +61,7 @@
           <input
             class="form-control"
             type="text"
-            name="image"
+            name="thumbnail"
             placeholder="Image"
             value="http://www.taylandgezi.com/wp-content/uploads/app/tn/"
           />

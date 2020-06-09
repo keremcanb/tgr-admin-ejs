@@ -3,24 +3,6 @@
 <div class="container">
   <div class="row">
     <div class="col-md-7">
-      <!-- FILTER -->
-      <div class="mb-2">
-        <form action="/admin/filter" method="get">
-          <div class="form-row align-items-center">
-            <div class="col-auto my-1">
-              <select name="location" class="form-control">
-                <% locations.forEach((item) => { %>
-                <option><%= item.title %></option>
-                <% }) %>
-              </select>
-            </div>
-            <div class="col-auto my-1">
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-          </div>
-        </form>
-      </div>
-
       <!-- LIST -->
       <table class="table table-borderless table-hover table-striped">
         <tbody>
